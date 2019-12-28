@@ -2,7 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import smtplib
 
-URL = 'https://www.amazon.in/HP-410-Wireless-Color-Printer/dp/B07CKLN9K5/ref=sr_1_2?keywords=hp+ink+tank&qid=1577259493&smid=A14CZOWI0VEHLG&sr=8-2'
+URL = input("Enter URL :")
+budget = float(input("Enter Alert Amount :"))
 
 headers = {
     "User-Agent":
@@ -11,6 +12,7 @@ headers = {
 
 
 def check_price():
+
     page = requests.get(URL, headers=headers)
 
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -23,7 +25,7 @@ def check_price():
         price = soup.find(id="priceblock_ourprice").get_text()
     # TODO Fix issues with deal price/our price
     converted_price = float(price[2:4] + price[5:8])
-    if (converted_price < 12000.00):
+    if (converted_price < budget):
         send_mail()
     print(converted_price)
     print(title.strip())
@@ -38,7 +40,7 @@ def send_mail():
     server.login('scraperamazonflipkart@gmail.com', 'hdbuscxtxxsqyuvh')
 
     subject = 'Price fell down! DO NOT REPLY.This is a System-genrated mail'
-    body = 'Check the amazon Link https://www.amazon.in/HP-410-Wireless-Color-Printer/dp/B07CKLN9K5/ref=sr_1_2?keywords=hp+ink+tank&qid=1577259493&smid=A14CZOWI0VEHLG&sr=8-2'
+    body = 'Check the amazon Link {URL}'
 
     msg = f"Subject : {subject}\n\n{body}"
 
