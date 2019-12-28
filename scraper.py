@@ -4,7 +4,7 @@ import smtplib
 
 URL = input("Enter URL :")
 budget = float(input("Enter Alert Amount :"))
-
+toemail = input("Enter Your email :")
 headers = {
     "User-Agent":
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.16 Safari/537.36 Edg/80.0.361.9'
@@ -23,7 +23,7 @@ def check_price():
         # Sometimes Amazon uses deal price for special deals
     except:
         price = soup.find(id="priceblock_ourprice").get_text()
-    # TODO Fix issues with deal price/our price
+    # TODO Fix issues with deal price/our price Done
     converted_price = float(price[2:4] + price[5:8])
     if (converted_price < budget):
         send_mail()
@@ -44,8 +44,7 @@ def send_mail():
 
     msg = f"Subject : {subject}\n\n{body}"
 
-    server.sendmail('scraperamazonflipkart@gmail.com',
-                    'mandy64theking@gmail.com', msg)
+    server.sendmail('scraperamazonflipkart@gmail.com', toemail, msg)
     print("Email has been sent")
     server.quit()
 
