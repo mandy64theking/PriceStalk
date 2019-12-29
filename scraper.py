@@ -17,12 +17,12 @@ def check_price():
 
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    title = soup.find(id="productTitle").get_text()
+    title = soup.find("span", {"id": "productTitle"}).get_text()
     try:
-        price = soup.find(id="priceblock_dealprice").get_text()
+        price = soup.find("span", {"id": "priceblock_dealprice"}).get_text()
         # Sometimes Amazon uses deal price for special deals
     except:
-        price = soup.find(id="priceblock_ourprice").get_text()
+        price = soup.find("span", {"id": "priceblock_ourprice"}).get_text()
     # TODO Fix issues with deal price/our price Done
     converted_price = float(price[2:4] + price[5:8])
     if (converted_price < budget):
