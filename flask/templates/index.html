@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="" alt="logo">
+            <h4 class="logo">PriceStalk</h4>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">About us</a></li>
+                <li><a class="nav-link" href="#">Best Deals</a></li>
+            </ul>
+        </nav>
+        <div class="profilephoto">
+            <img src="" alt="profilephoto">
+        </div>
+    </header>
+    <main>
+        <section class="presentation">
+            <div class="introduction">
+                <div class="intro-text">
+                    <h1>Great Products</h1>
+
+                </div>
+                <div class="intro-text1">
+                    <h1>Missed Deals</h1>
+                </div>
+            </div>
+            <div class="link">
+                <form method="POST"> <input type="url" name="Url" id="linkto" placeholder="URL" required>
+                    <input type="number" id="budget" name="budget_" placeholder="Budget" required>
+                    <input type="email" id="email" name="mail_" placeholder="Email ID" required>
+                    <input type="submit">Submit
+                </form>
+            </div>
+            <div class="cover">
+                <img src="{{ url_for('static', filename='cover.jpg') }}" alt="sample-photo">
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
