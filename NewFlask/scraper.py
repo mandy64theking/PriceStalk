@@ -16,14 +16,20 @@ def check_price(URL, budget, toemail):
 
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    title = soup.find("span", {"id": "productTitle"}).get_text()
+    while True:
+        try:
+            title = soup.find("span", {"id": "productTitle"}).get_text()
+            if(title):
+                break
+        except:
+            continue
     try:
         price = soup.find("span", {"id": "priceblock_dealprice"}).get_text()
         # Sometimes Amazon uses deal price for special deals
     except:
         price = soup.find("span", {"id": "priceblock_ourprice"}).get_text()
     # TODO Fix issues with deal price/our price
-    converted_price = float((price[2:]).replace(",",""))
+    converted_price = float((price[2:]).replace(",", ""))
     if (converted_price < budget):
         send_mail(toemail, URL)
     print(converted_price)
@@ -48,4 +54,4 @@ def send_mail(toemail, URL):
     server.quit()
 
 
-#check_price()
+# check_price()

@@ -17,7 +17,13 @@ def check_price():
 
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    title = soup.find("span", {"id": "productTitle"}).get_text()
+    while True:
+        try:
+            title = soup.find("span", {"id": "productTitle"}).get_text()
+            if(title):
+                break
+        except:
+            continue
     try:
         price = soup.find("span", {"id": "priceblock_dealprice"}).get_text()
         # Sometimes Amazon uses deal price for special deals
@@ -29,7 +35,6 @@ def check_price():
         send_mail()
     print(converted_price)
     print(title.strip())
-    
 
 
 def send_mail():
