@@ -68,25 +68,36 @@
     <section id="home" class="main-banner parallaxie" style="background: url('static/images/onlineshop.jpg')">
         <div class="heading">
             <h1>Welcome to PriceStalk</h1>
+            {% if URL1 %}
+
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Hello User!</strong> Price has dropped to {{budget1}}.Please <a href="{{URL1}}">click
+                    here</a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
             <h3 class="cd-headline clip is-full-width">
                 <span>Great Products</span>
                 <span class="cd-words-wrapper">
                     <b class="is-visible">Missed Deals</b>
-                </span>
-                <h2 class="cd-headline clip is-full-width font-weight-bold">
-                    <!-- Extra Line -->
-                    <span></span>
-                </h2>
-                <h2 class="cd-headline clip is-full-width font-weight-bold">
-                    <span>Save More With Us !</span>
-                </h2>
-                <div class="btn-ber">
-                    <form method="POST"> <input type="url" name="Url" id="linkto" placeholder="URL" required>
-                        <input type="number" id="budget" name="budget_" placeholder="Budget" required>
-                        <input type="email" id="email" name="mail_" placeholder="Email ID" required>
-                        <span><input type="submit" class="sim-btn hvr-bounce-to-top"></span>
-                    </form>
-                </div>
+                </span></h3>
+
+            <h2 class="cd-headline clip is-full-width font-weight-bold">
+                <!-- Extra Line -->
+                <span></span>
+            </h2>
+            <h2 class="cd-headline clip is-full-width font-weight-bold">
+                <span>Save More With Us !</span>
+            </h2>
+            <div class="btn-ber">
+                <form method="POST"> <input type="url" name="Url" id="linkto" placeholder="URL" required>
+                    <input type="number" id="budget" name="budget_" placeholder="Budget" required>
+                    <input type="email" id="email" name="mail_" placeholder="Email ID" required>
+                    <span><input type="submit" class="sim-btn hvr-bounce-to-top"></span>
+                </form>
+            </div>
             </h3>
         </div>
     </section>

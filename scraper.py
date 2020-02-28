@@ -29,6 +29,7 @@ def check_price():
         send_mail()
     print(converted_price)
     print(title.strip())
+    
 
 
 def send_mail():

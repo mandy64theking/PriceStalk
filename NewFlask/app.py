@@ -9,8 +9,12 @@ def index():
         URL = request.form.get("Url")
         budget = (float)(request.form.get("budget_"))
         toemail = request.form.get("mail_")
-        check_price(URL, budget, toemail)
-    return render_template('index.html')
+        bro=check_price(URL, budget, toemail)
+    try:
+        return render_template('index.html',URL1=URL,budget1=bro,toemail1=toemail)
+    except:
+        return render_template('index.html')
+
 
 
 if (__name__ == "__main__"):
