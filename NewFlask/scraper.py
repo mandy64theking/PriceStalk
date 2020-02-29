@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import smtplib
-
+from selenium import webdriver
 #URL = input("Enter URL : ")
 #budget = float(input("Enter ALert Budget : "))
 #toemail = input("Enter your email ID : ")
@@ -12,7 +12,13 @@ headers = {
 
 
 def check_price(URL, budget, toemail):
-    page = requests.get(URL, headers=headers)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(options=options)
+
+    driver.implicitly_wait(30)
+    driver.get(URL)
+    page = requests.get(driver.page_source, headers=headers)
 
     soup = BeautifulSoup(page.content, 'html.parser')
 
