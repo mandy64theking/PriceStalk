@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import smtplib
-
+from selenium import webdriver
 URL = input("Enter URL :")
 budget = float(input("Enter Alert Amount :"))
 toemail = input("Enter Your email :")
@@ -12,8 +12,13 @@ headers = {
 
 
 def check_price():
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(options=options)
 
-    page = requests.get(URL, headers=headers)
+    driver.implicitly_wait(30)
+    driver.get(URL)
+    page = requests.get(driver.page_source, headers=headers)
 
     soup = BeautifulSoup(page.content, 'html.parser')
 
@@ -24,7 +29,7 @@ def check_price():
     except:
         price = soup.find("span", {"id": "priceblock_ourprice"}).get_text()
     # TODO Fix issues with deal price/our price Done
-    converted_price = float(price[2:4] + price[5:8])
+    converted_price = float((price[2:]).replace(",", ""))
     if (converted_price < budget):
         send_mail()
     print(converted_price)
