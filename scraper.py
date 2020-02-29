@@ -18,9 +18,8 @@ def check_price():
 
     driver.implicitly_wait(30)
     driver.get(URL)
-    page = requests.get(driver.page_source, headers=headers)
 
-    soup = BeautifulSoup(page.content, 'html.parser')
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
 
     title = soup.find("span", {"id": "productTitle"}).get_text()
     try:
@@ -34,7 +33,6 @@ def check_price():
         send_mail()
     print(converted_price)
     print(title.strip())
-    
 
 
 def send_mail():
