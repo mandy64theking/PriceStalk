@@ -4,53 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
-    <title>Home Page</title>
+    <link rel="shortcut icon" href="./logo/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./logo/favicon.ico">
+    <meta name="robots" content="index, follow">
+    <meta name="description"
+        content="PriceStalk is a website which uses gives the best deals for the products you want">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>PriceStalk</title>
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="" alt="logo">
-            <h4 class="logo">PriceStalk</h4>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a class="nav-link" href="#">Home</a></li>
-                <li><a class="nav-link" href="#">About us</a></li>
-                <li><a class="nav-link" href="#">Best Deals</a></li>
-            </ul>
-        </nav>
-        <div class="profilephoto">
-            <img src="" alt="profilephoto">
-        </div>
-    </header>
-    <main>
-        <section class="presentation">
-            <div class="introduction">
-                <div class="intro-text">
-                    <h1>Great Products</h1>
+    <script src="./js/app.js"></script>
+    <div id="home">
+        <header class="head-main">
+            <nav class="nav-bar">
+                <h1>PriceStalk</h1>
+                <ul>
+                    <li><a href="#home">
+                            <h2>Home</h2>
+                        </a></li>
+                    <li><a href="#about">
+                            <h2>About Us</h2>
+                        </a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="main-back">
+            <h1 class="intro-text">Great Products</br>Missed Deals</h1>
+            <button class="shop-button" id="clickon" onclick="jadoo()">Shop Now</button>
+            <form id="form" class="form">
+                <input type="url" placeholder="Enter Amazon URL" class="URL formele">
+                <input type="number" placeholder="Enter Budget" class="Budget formele">
+                <input type="E-mail" placeholder="E-mail" class="mail formele">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+    <div id="about">
+        <section class="about-back">
+            <div class="about-us">
+                <div class="about-text">
+                    <h1>PriceStalk</h1>
+                    <p>Shopping online is similar to participating in the stock market than shopping at your local
+                        store.
+                        Prices don’t just change with the season or when something goes on sale. They oscillate as often
+                        as
+                        every 15 minutes.</br>
 
-                </div>
-                <div class="intro-text1">
-                    <h1>Missed Deals</h1>
+                        The steady value changes have irritated a few buyers when they see the cost of a thing drop
+                        directly
+                        after they buy it.</br>
+                        We designed a website which will follow the costs and advise the client when the item is
+                        accessible
+                        at the least expensive rate.</p>
                 </div>
             </div>
-            <div class="link">
-                <form action=./submit.html>
-                    <input type="url" id="linkto" placeholder="URL">
-                    <input type="number" id="budget" placeholder="Budget">
-                    <input name=type="email" id="email" placeholder="Email ID">
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-            <div class="cover">
-                <img src="./cover.jpg" alt="sample-photo">
+            <div class="img-gallery">
+                <div class="aamche-photo">
+                    <div class="mandar"><img src="./img/mandar.jpeg" alt="">
+                        <h2>Mandar Bakshi</h2>
+                        <h3>Co-Founder</h3>
+                    </div>
+                    <!--
+                    <div class="prathamesh"><img src="./img/prathamesh.jpeg" alt="">
+                        <h2>Prathamesh Gautame</h2>
+                        <h3>Co-Founder</h3>
+                    </div>
+                -->
+                </div>
             </div>
         </section>
-    </main>
+        <footer>
+            <h2>A creation of Mandar Bakshi and Prathamesh Gautame </br>PriceStalk &copy;2020</h2>
+        </footer>
+    </div>
 </body>
 
 </html>
